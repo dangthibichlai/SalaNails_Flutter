@@ -1,0 +1,17 @@
+import 'package:bill_app/components/master-page.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
+
+class ComingSoonPage extends StatelessWidget {
+  const ComingSoonPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MasterPage(
+      title: 'Coming Soon',
+      body: Center(
+        child: Text("COMING SOON"),
+      ),
+    );
+  }
+}
