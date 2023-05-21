@@ -1,14 +1,22 @@
+import 'package:bill_app/pages/detail-product.dart';
 import 'package:bill_app/pages/test-page/login-page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import 'components/master-page.dart';
+import 'pages/cart-page.dart';
+import 'pages/test-page/history-cart.dart';
 import 'pages/home-page.dart';
 import 'pages/login-page-salanail.dart';
+import 'pages/time-page.dart';
 import 'provider/Products_provider.dart';
-
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+void main() async {
+  await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+);
   runApp(const MyApp());
   // Khóa xoay màn hình
   SystemChrome.setPreferredOrientations(
@@ -29,13 +37,15 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (BuildContext context) => Products(),
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const LoginPageNail(),
-      ),
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: const TimerPage(),
+          routes: {
+            DetailProductPage.routerName: (context) => const DetailProductPage()
+          }),
     );
   }
 }

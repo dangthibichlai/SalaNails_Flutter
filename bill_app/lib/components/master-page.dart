@@ -1,3 +1,4 @@
+import 'package:bill_app/pages/login-page-salanail.dart';
 import 'package:flutter/material.dart';
 
 import '../pages/resources/app-color.dart';
@@ -67,20 +68,25 @@ class MasterPage extends StatelessWidget {
                 iconSize: 30.0,
                 padding: const EdgeInsets.only(right: 28.0),
                 icon: const Icon(
-                  Icons.person,
+                  Icons.logout_outlined,
                   color: Color.fromARGB(255, 243, 180, 201),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Route route = MaterialPageRoute(
+                    builder: (context) => const LoginPageNail(),
+                  );
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    route,
+                    (Route<dynamic> route) => false,
+                  );
+                },
               )
             ],
           ),
         ),
       ),
-      body: PageView(
-        children: [
-          body ?? const Scaffold(),
-        ],
-      ),
+      body: body,
       floatingActionButton: Container(
         height: 65.0,
         width: 65.0,

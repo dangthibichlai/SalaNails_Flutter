@@ -22,4 +22,5 @@ class User {
         _phone = phone ?? '',
         _address = address,
         _avatar = avatar;
+ 
 }

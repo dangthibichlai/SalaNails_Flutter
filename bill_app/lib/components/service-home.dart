@@ -2,6 +2,8 @@ import 'package:bill_app/pages/ablum-sanpham.dart';
 import 'package:flutter/material.dart';
 
 import '../models/function-home.dart';
+import '../pages/cart-page.dart';
+import '../pages/test-page/history-cart.dart';
 import '../pages/resources/app-color.dart';
 import 'coming-soon.dart';
 
@@ -34,7 +36,7 @@ class serviceHome extends StatelessWidget {
           image: 'assets/images/function-home-images/gioi-thieu-ban-be.jpg'),
       FunctionHome(
           id: 14,
-          name: 'Nails box',
+          name: 'Giỏ hàng',
           image: 'assets/images/function-home-images/nails-box.jpg'),
     ];
 
@@ -77,7 +79,15 @@ class serviceHome extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                           AblumSanPhamPagePage()));
+                                          AblumSanPhamPagePage()));
+                              break;
+                            }
+                          case 14:
+                            {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => CartPage()));
                               break;
                             }
                           default:
