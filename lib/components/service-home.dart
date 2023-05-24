@@ -61,7 +61,7 @@ class serviceHome extends StatelessWidget {
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     childAspectRatio: MediaQuery.of(context).size.width /
                         (MediaQuery.of(context).size.height / 1.6), // là
-                    crossAxisSpacing: 10,
+                    //crossAxisSpacing: 10,
                     // mainAxisSpacing: 20, // khoảng cách giữa các item
                     crossAxisCount: 3,
                   ),
@@ -128,7 +128,8 @@ class serviceHome extends StatelessWidget {
                               child: Image.asset(
                                 listFunc[index].image ?? '',
                                 fit: BoxFit.cover,
-                                height: 80,
+                                height: MediaQuery.of(context).size.height / 14,
+                                width: MediaQuery.of(context).size.height / 14,
                               ),
                             ),
                             Padding(
@@ -136,9 +137,10 @@ class serviceHome extends StatelessWidget {
                               child: Text(
                                 listFunc[index].name ?? '',
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 11,
+                                  fontSize:
+                                      MediaQuery.of(context).size.height / 80,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -156,18 +158,22 @@ class serviceHome extends StatelessWidget {
         Align(
           alignment: Alignment.topCenter,
           child: Container(
-            padding: const EdgeInsets.only(left: 20, right: 20, top: 15),
-            height: 50,
+            padding: EdgeInsets.only(
+              left: MediaQuery.of(context).size.height / 60,
+              right: MediaQuery.of(context).size.height / 60,
+              top: MediaQuery.of(context).size.height / 100,
+            ),
+            height: MediaQuery.of(context).size.height / 20,
             //color: const Color.fromARGB(255, 253, 247, 249), //
             decoration: const BoxDecoration(
               color: Color.fromARGB(255, 252, 116, 116), // màu nền
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
-            child: const Text(
+            child: Text(
               "DỊCH VỤ TẠI SALA",
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 14,
+                fontSize: MediaQuery.of(context).size.height / 60,
                 fontWeight: FontWeight.bold,
               ),
             ),

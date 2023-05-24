@@ -24,8 +24,7 @@ class _TimerPageState extends State<TimerPage> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const HomePage()));
+      checkLoginStatus();
     });
   }
 
@@ -56,16 +55,16 @@ class _TimerPageState extends State<TimerPage> {
     return Scaffold(
         body: Center(
       child: SizedBox(
-        width: 200,
+        width: MediaQuery.of(context).size.width,
         child: CarouselSlider.builder(
           itemCount: 2,
           itemBuilder: (BuildContext context, int index, int realIndex) {
             return SizedBox(
-              width: MediaQuery.of(context).size.width,
+              width: MediaQuery.of(context).size.width / 2,
               // margin: EdgeInsets.symmetric(horizontal: 10.0),
               child: Image.asset(
                 slide[index],
-                fit: BoxFit.cover,
+                fit: BoxFit.contain,
               ),
             );
           },

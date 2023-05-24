@@ -1,7 +1,4 @@
 class User {
-  static final String phoneUse = '10123';
-  static final String passwordUse = '123';
-
   String? phone;
   String? password;
   User({this.phone, this.password});

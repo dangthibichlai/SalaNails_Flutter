@@ -34,14 +34,15 @@ class MasterPage extends StatelessWidget {
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(), //
         child: SizedBox(
-          height: 75,
+          height: MediaQuery.of(context).size.height / 14,
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
+              const SizedBox(),
               IconButton(
-                iconSize: 30.0,
-                padding: const EdgeInsets.only(left: 28.0),
+                iconSize: MediaQuery.of(context).size.height / 30,
+                //padding: const EdgeInsets.only(left: 28.0),
                 icon: const Icon(
                   Icons.home,
                   color: Color.fromARGB(255, 243, 180, 201),
@@ -49,17 +50,18 @@ class MasterPage extends StatelessWidget {
                 onPressed: () {},
               ),
               IconButton(
-                iconSize: 30.0,
-                padding: const EdgeInsets.only(right: 28.0),
+                iconSize: MediaQuery.of(context).size.height / 30,
+                //padding: const EdgeInsets.only(right: 28.0),
                 icon: const Icon(
                   Icons.search,
                   color: Color.fromARGB(255, 243, 180, 201),
                 ),
                 onPressed: () {},
               ),
+              const SizedBox(width: 20.0),
               IconButton(
-                iconSize: 30.0,
-                padding: const EdgeInsets.only(left: 28.0),
+                iconSize: MediaQuery.of(context).size.height / 30,
+                //padding: const EdgeInsets.only(left: 28.0),
                 icon: const Icon(
                   Icons.notifications,
                   color: Color.fromARGB(255, 243, 180, 201),
@@ -67,8 +69,8 @@ class MasterPage extends StatelessWidget {
                 onPressed: () {},
               ),
               IconButton(
-                iconSize: 30.0,
-                padding: const EdgeInsets.only(right: 28.0),
+                iconSize: MediaQuery.of(context).size.height / 30,
+                //padding: const EdgeInsets.only(right: 28.0),
                 icon: const Icon(
                   Icons.logout_outlined,
                   color: Color.fromARGB(255, 243, 180, 201),
@@ -87,15 +89,16 @@ class MasterPage extends StatelessWidget {
                     (Route<dynamic> route) => false,
                   );
                 },
-              )
+              ),
+              const SizedBox(),
             ],
           ),
         ),
       ),
       body: body,
       floatingActionButton: SizedBox(
-        height: 65.0,
-        width: 65.0,
+        height: MediaQuery.of(context).size.height / 14,
+        width: MediaQuery.of(context).size.height / 14,
         child: FittedBox(
           child: FloatingActionButton(
             onPressed: () {},
