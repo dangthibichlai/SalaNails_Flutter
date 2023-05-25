@@ -49,15 +49,15 @@ class itemHome extends StatelessWidget {
         color: Color.fromARGB(255, 253, 223, 233),
       ),
       //
-      height: 230,
+      height: MediaQuery.of(context).size.height / 4,
 
       child: Align(
         child: GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               childAspectRatio: MediaQuery.of(context).size.width /
-                  (MediaQuery.of(context).size.height / 1.8), // là
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 20, // khoảng cách giữa các item
+                  (MediaQuery.of(context).size.height / 1.8),
+              // crossAxisSpacing: 20,
+              // mainAxisSpacing: 20, // khoảng cách giữa các item
               crossAxisCount: 4,
             ),
             itemCount: listFunc.length,
@@ -81,7 +81,8 @@ class itemHome extends StatelessWidget {
                     child: Image.asset(
                       listFunc[index].image ?? '',
                       fit: BoxFit.cover,
-                      height: 50,
+                      height: MediaQuery.of(context).size.height / 20,
+                      width: MediaQuery.of(context).size.height / 20,
                     ),
                   ),
                   Padding(
@@ -89,9 +90,9 @@ class itemHome extends StatelessWidget {
                     child: Text(
                       listFunc[index].name ?? '',
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.black,
-                        fontSize: 11,
+                        fontSize: MediaQuery.of(context).size.height / 80,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
