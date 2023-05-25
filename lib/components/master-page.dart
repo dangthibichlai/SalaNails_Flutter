@@ -74,17 +74,40 @@ class MasterPage extends StatelessWidget {
                   color: Color.fromARGB(255, 243, 180, 201),
                 ),
                 onPressed: () async {
-                  SharedPreferences prefs =
-                      await SharedPreferences.getInstance();
-                  await prefs.remove('user');
-                  Route route = MaterialPageRoute(
-                    builder: (context) => const LoginPageNail(),
-                  );
-                  // ignore: use_build_context_synchronously
-                  Navigator.pushAndRemoveUntil(
-                    context,
-                    route,
-                    (Route<dynamic> route) => false,
+                  // hiện thông báo xác nhận đăng xuất
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: const Text('Đăng xuất'),
+                        content: const Text('Bạn có muốn đăng xuất không?'),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: const Text('Hủy'),
+                          ),
+                          TextButton(
+                            onPressed: () async {
+                              SharedPreferences prefs =
+                                  await SharedPreferences.getInstance();
+                              await prefs.remove('user');
+                              Route route = MaterialPageRoute(
+                                builder: (context) => const LoginPageNail(),
+                              );
+                              // ignore: use_build_context_synchronously
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                route,
+                                (Route<dynamic> route) => false,
+                              );
+                            },
+                            child: const Text('Đăng xuất'),
+                          ),
+                        ],
+                      );
+                    },
                   );
                 },
               )

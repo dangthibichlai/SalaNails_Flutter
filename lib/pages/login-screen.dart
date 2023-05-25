@@ -189,11 +189,13 @@ class _LoginPageNailState extends State<LoginPageNail> {
                                                   prefs.setString(
                                                       'user', jsonEncode(map));
 
-                                                  Navigator.push(
+                                                  Navigator.pushAndRemoveUntil(
                                                     context,
                                                     MaterialPageRoute(
                                                         builder: (context) =>
                                                             const HomePage()),
+                                                    (Route<dynamic> route) =>
+                                                        false,
                                                   );
 
                                                   FocusScope.of(context)
